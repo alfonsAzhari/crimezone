@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/lin_report_header"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#F1C40F"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/lin_header_backBtn"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:background="@drawable/effect_btn_header2"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:src="@drawable/ic_arrow_left" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="1.8"
+            android:padding="5dp"
+            android:src="@drawable/ic_navgationbar_logo" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,5 +4,8 @@
     <string name="app_name">Crimezone</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_post_kejahatan">PostKejahatan</string>
+    <string name="btnTakePicture">Capture Image</string>
+    <string name="save">Save</string>
 
 </resources>
