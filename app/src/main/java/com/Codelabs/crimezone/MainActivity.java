@@ -1,5 +1,7 @@
 package com.Codelabs.crimezone;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -26,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
     private LinearLayout linNavDrawer;
     private ListView listNav;
     private ActionBarDrawerToggle drawerToggle;
+    private Button btn;
 
     private ArrayList<ModelAdapterListNav> item;
     private AdapterListDrawer adapter;
@@ -36,6 +41,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         declareView();
+
         setSupportActionBar(toolbar);
 
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -54,6 +60,10 @@ public class MainActivity extends ActionBarActivity {
             }
         };
         drawerLayout.setDrawerListener(drawerToggle);
+
+        if (savedInstanceState == null) {
+            selectItem(0);
+        }
     }
 
     private void setItemListDrawer(Context context) {
@@ -63,6 +73,7 @@ public class MainActivity extends ActionBarActivity {
 
         adapter = new AdapterListDrawer(item, context);
         listNav.setAdapter(adapter);
+        listNav.setOnItemClickListener(new DrawerItemClickListener());
     }
 
     private void declareView() {
@@ -70,6 +81,18 @@ public class MainActivity extends ActionBarActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_main);
         linNavDrawer = (LinearLayout) findViewById(R.id.lin_nav_drawer);
         listNav = (ListView) findViewById(R.id.list_drawer);
+    }
+
+    private void selectItem(int position) {
+        Fragment fragmentTimeline = new FragmentTimeline();
+        FragmentManager fragmentManager = getFragmentManager();
+        switch (position) {
+            case 0:
+                fragmentManager.beginTransaction().replace(R.id.frame_main_content, fragmentTimeline).commit();
+                break;
+        }
+        listNav.setItemChecked(position, true);
+        drawerLayout.closeDrawer(linNavDrawer);
     }
 
     @Override
@@ -120,5 +143,12 @@ public class MainActivity extends ActionBarActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectItem(position);
+        }
     }
 }

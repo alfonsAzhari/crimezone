@@ -25,16 +25,11 @@
             android:background="#E1E1E1"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#B6B6B6" />
-
             <ImageView
                 android:id="@+id/img_drawer_banner"
                 android:layout_width="240dp"
                 android:layout_height="120dp"
-                android:background="#FFC107"
+                android:background="#FFEB3B"
                 android:src="@drawable/ic_logo" />
 
             <View
@@ -46,7 +41,9 @@
                 android:id="@+id/list_drawer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:divider="#B6B6B6"
                 android:choiceMode="singleChoice" />
         </LinearLayout>
     </android.support.v4.widget.DrawerLayout>
+
 </LinearLayout>
