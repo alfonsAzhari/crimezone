@@ -28,7 +28,7 @@
             <ImageView
                 android:id="@+id/img_drawer_banner"
                 android:layout_width="240dp"
-                android:layout_height="120dp"
+                android:layout_height="100dp"
                 android:background="#FFEB3B"
                 android:src="@drawable/ic_logo" />
 

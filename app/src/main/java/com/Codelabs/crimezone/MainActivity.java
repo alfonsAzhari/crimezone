@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
         drawerLayout.setDrawerListener(drawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(0);
+            selectItem(1);
         }
     }
 
@@ -85,11 +85,14 @@ public class MainActivity extends ActionBarActivity {
 
     private void selectItem(int position) {
         Fragment fragmentTimeline = new FragmentTimeline();
+        Fragment fragmentSosialisasi = new FragmentSosialisasi();
         FragmentManager fragmentManager = getFragmentManager();
         switch (position) {
             case 0:
                 fragmentManager.beginTransaction().replace(R.id.frame_main_content, fragmentTimeline).commit();
                 break;
+            case 1:
+                fragmentManager.beginTransaction().replace(R.id.frame_main_content, fragmentSosialisasi).commit();
         }
         listNav.setItemChecked(position, true);
         drawerLayout.closeDrawer(linNavDrawer);
@@ -97,7 +100,11 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+        if (drawerLayout.isDrawerOpen(linNavDrawer)) {
+            drawerLayout.closeDrawer(linNavDrawer);
+        } else {
+            finish();
+        }
     }
 
     @Override

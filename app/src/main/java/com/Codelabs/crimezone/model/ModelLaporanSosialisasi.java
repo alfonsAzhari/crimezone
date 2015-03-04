@@ -5,15 +5,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 
-public class ModelKegiatanSosialisasi {
+public class ModelLaporanSosialisasi {
 
-    @JsonProperty("sukses")
-    private String sukses;
+    @JsonProperty("result")
+    private String result;
 
     @JsonProperty("item")
-    private List<ModelLaporanKejahatan.Item> item;
+    private List<Item> item;
 
-    public class Item {
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public List<Item> getItem() {
+        return item;
+    }
+
+    public void setItem(List<Item> item) {
+        this.item = item;
+    }
+
+    public static class Item {
         @JsonProperty("id_kegiatan")
         private String idKegiatan;
 
