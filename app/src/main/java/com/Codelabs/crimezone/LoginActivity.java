@@ -19,10 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +27,7 @@ import com.Codelabs.crimezone.api.ApiReferences;
 import com.Codelabs.crimezone.model.ModelResponseLogin;
 import com.Codelabs.crimezone.utils.MyVolley;
 
+
 public class LoginActivity extends ActionBarActivity {
 
     private EditText edTxt_email, edTxt_pass;
@@ -38,10 +35,7 @@ public class LoginActivity extends ActionBarActivity {
     private Boolean internetTersedia = false;
     private ProgressDialog progressDialog = null;
     private Context mContext = null;
-    private HttpClient httpClient;
-    private HttpPost httpPost;
     private TextView txtV_email;
-    private HttpResponse response;
     private ModelResponseLogin model;
 
     @Override
