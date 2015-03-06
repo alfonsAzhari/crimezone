@@ -1,6 +1,7 @@
 package com.Codelabs.crimezone;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -26,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
     private LinearLayout linNavDrawer;
     private ListView listNav;
     private ActionBarDrawerToggle drawerToggle;
+    private Button btn;
 
     private ArrayList<ModelAdapterListNav> item;
     private AdapterListDrawer adapter;
@@ -36,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         declareView();
+
         setSupportActionBar(toolbar);
 
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);

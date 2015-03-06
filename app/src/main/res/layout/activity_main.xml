@@ -7,6 +7,8 @@
 
     <include layout="@layout/header" />
 
+
+
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_main"
         android:layout_width="match_parent"
