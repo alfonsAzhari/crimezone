@@ -3,6 +3,15 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+<<<<<<< HEAD
+=======
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/volley" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/volley" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/volley" vcs="Git" />
+>>>>>>> 45d82eb3f840a43d71386148e2d2ec63f1621d9f
     <mapping directory="$PROJECT_DIR$/volley" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/volley" vcs="Git" />
   </component>

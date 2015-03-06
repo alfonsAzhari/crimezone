@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-
-public class ModelLaporanKejahatan {
+/**
+ * Created by Alfons on 3/3/2015.
+ */
+public class ModelDetailKejahatan {
 
     @JsonProperty("result")
     private String result;
@@ -30,7 +32,6 @@ public class ModelLaporanKejahatan {
     }
 
     public static class Item {
-
         @JsonProperty("id_laporan_kejahatan")
         private String idLaporanKejahatan;
 
@@ -41,16 +42,28 @@ public class ModelLaporanKejahatan {
         private String judulLaporanKegiatan;
 
         @JsonProperty("tanggal_kejadian")
-        private String tanggalKejadian;
+        private String tglKejadian;
 
         @JsonProperty("alamat_kejahatan")
-        private String alamatKejadian;
+        private String alamatKejahatan;
 
         @JsonProperty("nama_jenis_kejahatan")
         private String namaJenisKejahatan;
 
         @JsonProperty("nama_petugas")
         private String namaPetugas;
+
+        @JsonProperty("latitude")
+        private String latitude;
+
+        @JsonProperty("longitude")
+        private String longitude;
+
+        @JsonProperty("deskripsi_laporan_kejahatan")
+        private String descLaporanKejahatan;
+
+        @JsonProperty("nama_status_laporan")
+        private String namaStatusLaporan;
 
         public String getIdLaporanKejahatan() {
             return idLaporanKejahatan;
@@ -76,20 +89,20 @@ public class ModelLaporanKejahatan {
             this.judulLaporanKegiatan = judulLaporanKegiatan;
         }
 
-        public String getTanggalKejadian() {
-            return tanggalKejadian;
+        public String getTglKejadian() {
+            return tglKejadian;
         }
 
-        public void setTanggalKejadian(String tanggalKejadian) {
-            this.tanggalKejadian = tanggalKejadian;
+        public void setTglKejadian(String tglKejadian) {
+            this.tglKejadian = tglKejadian;
         }
 
-        public String getAlamatKejadian() {
-            return alamatKejadian;
+        public String getAlamatKejahatan() {
+            return alamatKejahatan;
         }
 
-        public void setAlamatKejadian(String alamatKejadian) {
-            this.alamatKejadian = alamatKejadian;
+        public void setAlamatKejahatan(String alamatKejahatan) {
+            this.alamatKejahatan = alamatKejahatan;
         }
 
         public String getNamaJenisKejahatan() {
@@ -106,6 +119,38 @@ public class ModelLaporanKejahatan {
 
         public void setNamaPetugas(String namaPetugas) {
             this.namaPetugas = namaPetugas;
+        }
+
+        public String getLatitude() {
+            return latitude;
+        }
+
+        public void setLatitude(String latitude) {
+            this.latitude = latitude;
+        }
+
+        public String getLongitude() {
+            return longitude;
+        }
+
+        public void setLongitude(String longitude) {
+            this.longitude = longitude;
+        }
+
+        public String getDescLaporanKejahatan() {
+            return descLaporanKejahatan;
+        }
+
+        public void setDescLaporanKejahatan(String descLaporanKejahatan) {
+            this.descLaporanKejahatan = descLaporanKejahatan;
+        }
+
+        public String getNamaStatusLaporan() {
+            return namaStatusLaporan;
+        }
+
+        public void setNamaStatusLaporan(String namaStatusLaporan) {
+            this.namaStatusLaporan = namaStatusLaporan;
         }
     }
 }

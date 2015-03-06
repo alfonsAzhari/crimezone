@@ -1,0 +1,156 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F1C40F"
+    android:layout_height="match_parent"
+    tools:context="com.Codelabs.crimezone.RegisterActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rel_logo"
+                android:layout_width="fill_parent"
+                android:layout_height="250dp"
+                android:layout_alignParentTop="true">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_logo" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lin_wrap_data"
+                android:layout_below="@+id/rel_logo"
+                android:background="@drawable/login_circle"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="50dp">
+
+                    <EditText
+                        android:id="@+id/edTxt_register_nama"
+                        android:layout_width="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:background="#00000000"
+                        android:hint="Nama Lengkap"
+                        android:textSize="10pt"
+                        android:textColorHint="#b6b6b6"
+                        android:layout_height="wrap_content"
+                        android:textColor="#727272" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#DBDBDB" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="50dp">
+
+                    <EditText
+                        android:id="@+id/edTxt_register_email"
+                        android:layout_width="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:background="#00000000"
+                        android:hint="Email"
+                        android:textSize="10pt"
+                        android:textColorHint="#b6b6b6"
+                        android:layout_height="wrap_content"
+                        android:textColor="#727272" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#DBDBDB" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="50dp">
+
+                    <EditText
+                        android:id="@+id/edTxt_register_password"
+                        android:layout_width="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:background="#00000000"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textSize="10pt"
+                        android:textColorHint="#b6b6b6"
+                        android:layout_height="wrap_content"
+                        android:textColor="#727272" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#DBDBDB" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="50dp">
+
+                    <EditText
+                        android:id="@+id/edTxt_regis_noKtp"
+                        android:layout_width="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:background="#00000000"
+                        android:hint="No KTP"
+                        android:textSize="10pt"
+                        android:inputType="textPassword"
+                        android:textColorHint="#b6b6b6"
+                        android:layout_height="wrap_content"
+                        android:textColor="#727272" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_regis_btnRegister"
+                android:layout_width="fill_parent"
+                android:clickable="true"
+                android:layout_height="50dp"
+                android:background="@drawable/login_circle"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/lin_wrap_data">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textSize="10pt"
+                    android:textColor="#F1C40F" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
