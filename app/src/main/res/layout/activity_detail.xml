@@ -2,8 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.Codelabs.crimezone.DetailActivity">
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
 
     <include layout="@layout/header" />
+
+    <FrameLayout
+        android:id="@+id/frame_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <include layout="@layout/header_shadow" />
+        
+    </FrameLayout>
 
 </LinearLayout>
