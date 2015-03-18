@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.Codelabs.crimezone.adapter.AdapterViewPager;
 
-
 public class WalkthroughActivity extends ActionBarActivity {
 
     private Typeface typeFace;
@@ -33,7 +32,6 @@ public class WalkthroughActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_walkthrough);
         mContext = getApplicationContext();
         declareView();
@@ -50,12 +48,12 @@ public class WalkthroughActivity extends ActionBarActivity {
     }
 
     public void declareWid() {
-        lin_btnReg = (LinearLayout) findViewById(R.id.lin_walk_btnRegis);
+        //lin_btnReg = (LinearLayout) findViewById(R.id.lin_walk_btnRegis);
         lin_btnLog = (LinearLayout) findViewById(R.id.lin_walk_btnLogin);
     }
 
     public void declareInt() {
-        lin_btnReg.setOnClickListener(_register);
+        //lin_btnReg.setOnClickListener(_register);
         lin_btnLog.setOnClickListener(_login);
     }
 
@@ -110,11 +108,12 @@ public class WalkthroughActivity extends ActionBarActivity {
         //viewPager.setPageMargin(-20);
     }
 
+
     View.OnClickListener _register = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(mContext, RegisterActivity.class);
-            startActivity(i);
+//            Intent i = new Intent(mContext, RegisterActivity.class);
+//            startActivity(i);
         }
     };
 
@@ -130,7 +129,6 @@ public class WalkthroughActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_walkthrough, menu);
-
         return true;
     }
 

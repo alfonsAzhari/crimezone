@@ -11,7 +11,9 @@ import android.widget.RelativeLayout;
 
 import com.Codelabs.crimezone.R;
 
-
+/**
+ * Created by Alfons on 3/4/2015.
+ */
 public class AdapterViewPager extends PagerAdapter {
 
     Context _context;
@@ -45,7 +47,7 @@ public class AdapterViewPager extends PagerAdapter {
         ImageView imgFlag;
 
         _inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View itemView = _inflater.inflate(R.layout.item_viewpager, container, false);
+        View itemView = _inflater.inflate(R.layout.item_view_pager, container, false);
 
         imgFlag = (ImageView) itemView.findViewById(R.id.flag);
 

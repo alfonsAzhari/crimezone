@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
+
 public class JacksonParser {
 
     public static ModelLaporanKejahatan getDataKejahatan(String json) throws IOException {
