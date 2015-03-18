@@ -9,6 +9,5 @@
     <string name="title_activity_walkthrough">WalkthroughActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
-    <string name="dummy_description">Let your IDE take care of your routine development tasks. Smart, type-aware code completion, reliable and powerful refactorings, and intelligent code inspections all work together to help you code faster. You can literally feel productivity with your fingertips when using keyboard shortcuts, live templates and intention actions. There's always something to learn to be even more productive.</string>
 
 </resources>
