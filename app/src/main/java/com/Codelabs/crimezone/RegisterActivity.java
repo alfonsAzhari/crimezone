@@ -2,14 +2,18 @@ package com.Codelabs.crimezone;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.Codelabs.crimezone.api.ApiReferences;
+import com.Codelabs.crimezone.model.ModelResponseRegister;
+import com.Codelabs.crimezone.utils.MyVolley;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,11 +26,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import com.Codelabs.crimezone.model.ModelResponseRegister;
-import com.Codelabs.crimezone.utils.MyVolley;
-import com.Codelabs.crimezone.api.ApiReferences;
 
 public class RegisterActivity extends ActionBarActivity {
 
@@ -36,11 +37,22 @@ public class RegisterActivity extends ActionBarActivity {
     private HttpClient httpClient;
     private HttpResponse response;
     private HttpPost httpPost;
+    private Integer WAKTU_TOAST = 1000;
+    private SharedPreferences sharedPreferences;
+    private static final String mPREF = "Data_User";
+    private static final String NAMA = "Nama_User";
+    private static final String EMAIL = "Email";
+    private static final String PASSWORD = "Password";
+    private static final String NO_KTP = "No_KTP";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        mContext = getApplicationContext();
+        declareWid();
+        declareInt();
+        //Log.i("AAA", getLastDataUser().toArray().toString());
     }
 
     private void declareWid() {
@@ -52,6 +64,22 @@ public class RegisterActivity extends ActionBarActivity {
         edTxt_noKtp = (EditText) findViewById(R.id.edTxt_regis_noKtp);
     }
 
+    private void declareInt() {
+        rel_btnRegis.setOnClickListener(_register);
+    }
+
+    View.OnClickListener _register = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            try {
+                registerUser();
+                //getDataPref();
+            } catch (Exception e) {
+                e.toString();
+            }
+        }
+    };
+
     private void registerUser() {
         final String nama, email, password, no_ktp;
         nama = edTxt_nama.getText().toString();
@@ -59,8 +87,6 @@ public class RegisterActivity extends ActionBarActivity {
         password = edTxt_pass.getText().toString();
         no_ktp = edTxt_noKtp.getText().toString();
 
-        MyVolley.init(mContext);
-        RequestQueue queue = MyVolley.getRequestQueue();
         StringRequest postRequest = new StringRequest(Request.Method.POST, ApiReferences.postUrlRegisterUser(), new
                 Response.Listener<String>() {
                     @Override
@@ -68,8 +94,9 @@ public class RegisterActivity extends ActionBarActivity {
                         Log.d("Response", response);
                         getDataUser(response);
                         if (!response.isEmpty()) {
-                            Intent i = new Intent(mContext, MainActivity.class);
+                            Intent i = new Intent(mContext, LoginActivity.class);
                             startActivity(i);
+                            finish();
                         }
                     }
                 },
@@ -83,14 +110,20 @@ public class RegisterActivity extends ActionBarActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("nama", nama);
+                params.put("nama_pengguna", nama);
                 params.put("email", email);
                 params.put("password", password);
                 params.put("no_ktp", no_ktp);
                 return params;
             }
         };
-        queue.add(postRequest);
+        if (nama.equals("") || email.equals("") || password.equals("") || no_ktp.equals("")) {
+            Toast.makeText(mContext, "Anda belum mengisi data secara lengkap", Toast.LENGTH_SHORT).show();
+        } else {
+            MyVolley.init(mContext);
+            RequestQueue queue = MyVolley.getRequestQueue();
+            queue.add(postRequest);
+        }
     }
 
     private void getDataUser(String json) {
@@ -103,25 +136,35 @@ public class RegisterActivity extends ActionBarActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_register, menu);
-        return true;
+    private void getDataPref() {
+        String namaUser = edTxt_nama.getText().toString();
+        String emailUser = edTxt_email.getText().toString();
+        String passUser = edTxt_pass.getText().toString();
+        String noKTPUser = edTxt_noKtp.getText().toString();
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(NAMA, namaUser);
+        editor.putString(EMAIL, emailUser);
+        editor.putString(PASSWORD, passUser);
+        editor.putString(NO_KTP, noKTPUser);
+        editor.commit();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public List<String> getLastDataUser() {
+        sharedPreferences = getSharedPreferences(mPREF, MODE_PRIVATE);
+        String getEmailUser = sharedPreferences.getString(EMAIL, "");
+        String getPassword = sharedPreferences.getString(PASSWORD, "");
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+//        List<String> listDataUser = new ArrayList<String>();
+//        listDataUser.add(getEmailUser);
+//        listDataUser.add(getPassword);
+//
+//        StringBuilder csvList = new StringBuilder();
+//        for(String s : listDataUser){
+//            csvList.append(s);
+//            csvList.append(",");
+//        }
+//        return listDataUser;
+        return null;
     }
 }

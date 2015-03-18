@@ -48,12 +48,12 @@ public class WalkthroughActivity extends ActionBarActivity {
     }
 
     public void declareWid() {
-        //lin_btnReg = (LinearLayout) findViewById(R.id.lin_walk_btnRegis);
+        lin_btnReg = (LinearLayout) findViewById(R.id.lin_walk_btnRegis);
         lin_btnLog = (LinearLayout) findViewById(R.id.lin_walk_btnLogin);
     }
 
     public void declareInt() {
-        //lin_btnReg.setOnClickListener(_register);
+        lin_btnReg.setOnClickListener(_register);
         lin_btnLog.setOnClickListener(_login);
     }
 
@@ -112,8 +112,8 @@ public class WalkthroughActivity extends ActionBarActivity {
     View.OnClickListener _register = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-//            Intent i = new Intent(mContext, RegisterActivity.class);
-//            startActivity(i);
+            Intent i = new Intent(mContext, RegisterActivity.class);
+            startActivity(i);
         }
     };
 

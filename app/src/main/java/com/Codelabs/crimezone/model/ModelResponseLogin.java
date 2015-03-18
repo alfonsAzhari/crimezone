@@ -1,38 +1,29 @@
 package com.Codelabs.crimezone.model;
 
-/**
- * Created by Alfons on 3/4/2015.
- */
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ModelResponseLogin {
 
-    public String getMsg() {
-        return msg;
-    }
+    @JsonProperty("result")
+    private String result;
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
+    @JsonProperty("msg")
     private String msg;
 
-    public String getNama() {
-        return nama;
-    }
+    @JsonProperty("id")
+    private String id;
 
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
+    @JsonProperty("email")
+    private String email;
 
-    public String getStatus_code() {
-        return status_code;
-    }
-
-    public void setStatus_code(String status_code) {
-        this.status_code = status_code;
-    }
-
+    @JsonProperty("nama")
     private String nama;
-    private String status_code;
+
+    @JsonProperty("foto")
+    private String foto;
+
+    @JsonProperty("status_code")
+    private int statusCode;
 
     public String getResult() {
         return result;
@@ -42,7 +33,21 @@ public class ModelResponseLogin {
         this.result = result;
     }
 
-    private String result;
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
@@ -52,5 +57,27 @@ public class ModelResponseLogin {
         this.email = email;
     }
 
-    private String email;
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
 }

@@ -3,11 +3,21 @@ package com.Codelabs.crimezone.model;
 /**
  * Created by Alfons on 3/4/2015.
  */
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ModelResponseRegister {
 
+    @JsonProperty("nama")
     private String nama;
+
+    @JsonProperty("email")
     private String email;
+
+    @JsonProperty("password")
     private String password;
+
+    @JsonProperty("no_ktp")
     private String no_ktp;
 
     public String getNama() {
