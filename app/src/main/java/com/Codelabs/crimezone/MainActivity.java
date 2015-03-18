@@ -25,6 +25,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
+
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private LinearLayout linNavDrawer;
@@ -38,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         declareView();
@@ -64,6 +66,7 @@ public class MainActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             selectItem(1);
         }
+
     }
 
     private void setItemListDrawer(Context context) {
@@ -110,7 +113,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_register, menu);
         return true;
     }
 

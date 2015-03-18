@@ -36,5 +36,6 @@ public class ApiReferences {
 
     public static String getUrlImage() {
         return SITENAME + MODUL_IMAGE;
+
     }
 }
