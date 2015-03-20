@@ -6,7 +6,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_timeline"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#e6e6e6" />
 
     <LinearLayout
         android:id="@+id/lin_timeline_progress"

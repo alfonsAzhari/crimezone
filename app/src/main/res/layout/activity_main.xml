@@ -7,17 +7,20 @@
 
     <include layout="@layout/header" />
 
-
-
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/frame_main_content"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frame_main_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/lin_nav_drawer"

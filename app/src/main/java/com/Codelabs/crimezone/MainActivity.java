@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
         drawerLayout.setDrawerListener(drawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(1);
+            selectItem(0);
         }
     }
 

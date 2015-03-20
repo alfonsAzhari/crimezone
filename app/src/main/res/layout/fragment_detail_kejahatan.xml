@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1"
     android:background="#ffffff"
     tools:context=".MainActivity">
 
@@ -18,8 +17,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:src="@drawable/ic_police_car_ava"
-            android:layout_marginBottom="10dp"
-            android:elevation="2dp" />
+            android:layout_marginBottom="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,6 +76,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/txt_detail_kejahatan_tag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="#pencurian"
@@ -85,6 +84,29 @@
                     android:padding="5dp"
                     android:background="#b6b6b6"
                     android:paddingRight="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lin_btn_detail_kejahatan_maps"
+                android:layout_width="142dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_btn_show_maps"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_marker_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Show Location"
+                    android:textColor="#ffffff" />
             </LinearLayout>
 
             <View
@@ -95,6 +117,7 @@
                 android:layout_marginBottom="10dp" />
 
             <TextView
+                android:id="@+id/txt_detail_kejahatan_desc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Description" />

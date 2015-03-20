@@ -75,7 +75,7 @@ public class FragmentSosialisasi extends Fragment {
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-
+                fetchData(response.toString());
             }
         }, new Response.ErrorListener() {
             @Override

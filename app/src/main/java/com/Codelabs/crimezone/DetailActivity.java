@@ -1,30 +1,50 @@
 package com.Codelabs.crimezone;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
+
+import java.util.ArrayList;
 
 
 public class DetailActivity extends ActionBarActivity {
 
-    Toolbar toolbar;
+    private Toolbar toolbar;
+    ArrayList<String> dataIntent = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar_main);
+        initData();
+        declareView();
         toolbar.setNavigationIcon(R.drawable.ic_launcher);
         setSupportActionBar(toolbar);
 
         Fragment detailKejahatan = new FragmentDetailKejahatan();
+        Bundle args = new Bundle();
+
+        args.putString("id", dataIntent.get(1));
+        detailKejahatan.setArguments(args);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.frame_detail_content, detailKejahatan).commit();
 
     }
 
+    private void initData() {
+        dataIntent = getIntent().getStringArrayListExtra("data");
+    }
+
+    private void declareView() {
+        toolbar = (Toolbar)findViewById(R.id.toolbar_main);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

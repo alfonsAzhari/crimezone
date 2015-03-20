@@ -2,6 +2,7 @@ package com.Codelabs.crimezone;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import com.Codelabs.crimezone.model.ModelLaporanKejahatan;
 import com.Codelabs.crimezone.parser.JacksonParser;
 import com.Codelabs.crimezone.utils.MyVolley;
 import com.Codelabs.crimezone.utils.NetworkChecking;
+import com.Codelabs.crimezone.utils.RecyclerItemClickListener;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -48,8 +50,7 @@ public class FragmentTimeline extends Fragment {
     private NetworkChecking networkChecking;
     private RequestQueue requestQueue;
 
-    public FragmentTimeline() {
-    }
+    public FragmentTimeline() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -128,6 +129,24 @@ public class FragmentTimeline extends Fragment {
 
         adapter = new AdapterTimeline(context, itemTimeline);
         recyclerView.setAdapter(adapter);
+        recyclerView.addOnItemTouchListener(itemClick);
         linProgress.setVisibility(View.GONE);
     }
+
+    private RecyclerItemClickListener itemClick = new RecyclerItemClickListener(context, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            ArrayList<String> dataIntent = new ArrayList<>();
+            dataIntent.add("timeline");
+            dataIntent.add(model.getItem().get(position).getIdLaporanKejahatan());
+            Intent i = new Intent(context, DetailActivity.class);
+            i.putStringArrayListExtra("data", dataIntent);
+            startActivity(i);
+        }
+
+        @Override
+        public void onItemLongClick(View view, int position) {
+
+        }
+    });
 }
